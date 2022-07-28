@@ -1,5 +1,5 @@
 # coolant_temperature_gauge
-Displays the coolant temperature onto the OLED display and controls the speed of the fan accordingly. Uses the DS18B20 digital temperature sensor for coolant temperature measurement and works on both SSD1306 &amp; SH1106 drivers.
+Displays the Coolant Temperature onto the OLED display and controls the speed of the fan accordingly. Uses the DS18B20 digital temperature sensor for coolant temperature measurement and works on both SSD1306 &amp; SH1106 drivers.
 
 **LIBRARY REQUIREMENTS:**<br />
 Adafruit_GFX.h<br />
