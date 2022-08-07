@@ -14,7 +14,8 @@
 #include <Wire.h>
 #include <OneWire.h>
 #include <Adafruit_GFX.h>
-#include <Adafruit_SH110X.h>
+//#include <Adafruit_SH110X.h>    // uncomment if you're using an SH1106 driver
+//#include <Adafruit_SSD1306.h>   // uncomment if you're using an SSD1306 driver
 #include <Fonts/Waukegan_LDO5pt7b.h>
 #include <Fonts/FreeSans9pt7b.h>
 #include <Fonts/FreeSans18pt7b.h>
@@ -147,7 +148,7 @@ void calculate_temp(){
   delay(750);               
   present = ds.reset();
   ds.select(addr);    
-  ds.write(0xBE);           // Read Scratchpad
+  ds.write(0xBE);         // Read Scratchpad
   
   for ( i = 0; i < 9; i++) {   
     data[i] = ds.read();
@@ -176,7 +177,7 @@ void check_coolant_temp(){
   // Case-1 (185 F)
   if (celsius>=30 && celsius<32){
     analogWrite(FAN,85);
-    d1.drawBitmap(112,0,fan,16,16,1);//112
+    d1.drawBitmap(112,0,fan,16,16,1);
     d1.display();
     if (buzzer_state==0){
        tone(BUZZER, 880,150);
@@ -273,9 +274,9 @@ void shut_down(){
     d1.clearDisplay();
     d1.setFont(&Waukegan_LDO5pt7b);
     d1.setTextSize(1);
-    d1.setCursor(3, 25); //35,40
+    d1.setCursor(3, 25); 
     d1.print("Shutting Down in..");
-    d1.setCursor(50, 50);//35,40
+    d1.setCursor(50, 50);
     d1.print("3");
     d1.display();
     tone(BUZZER, 1976,150); 
